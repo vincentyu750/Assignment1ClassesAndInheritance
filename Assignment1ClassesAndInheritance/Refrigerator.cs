@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Assignment1ClassesAndInheritance
 {
-    internal class Class1
+    internal class Refrigerator
     {
+
     }
 }

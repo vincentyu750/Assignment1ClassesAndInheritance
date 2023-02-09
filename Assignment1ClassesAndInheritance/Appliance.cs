@@ -49,7 +49,7 @@ namespace Assignment1ClassesAndInheritance
         //Appliance Checkout Method 
         public void checkout(Appliance a1)
         {
-        
+            
         }
 
         //Formatting Appliance Data to File
