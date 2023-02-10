@@ -55,7 +55,12 @@ namespace Assignment1ClassesAndInheritance
         //Formatting Appliance Data to File
         public string formatForFile (List <Appliance> aList)
         {
-            return "appliance";
+            return this.itemNumber + ";" +
+                this.Brand + ";" +
+                this.quantity + ";" +
+                this.wattage + ";" +
+                this.color + ";" +
+                this.price + ";";
         }
 
         //Appliance ToString Method 
