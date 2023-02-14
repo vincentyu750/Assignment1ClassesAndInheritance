@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace Assignment1ClassesAndInheritance
 {
@@ -206,7 +204,6 @@ namespace Assignment1ClassesAndInheritance
                                 checkingNewItemNumber = (checkingNewItemNumber - (checkingNewItemNumber % 10)) / 10;
 
                             }
-                            Console.WriteLine(checkingNewItemNumber);
 
                             //If its a Refrigerator
                             if (checkingNewItemNumber == 1)
@@ -222,6 +219,10 @@ namespace Assignment1ClassesAndInheritance
 
                                 //Creating Refrigerator Object and adding to list
                                 Refrigerator newRefrigerator = new Refrigerator(newItemNumber, newBrand, newQuantity, newWattage, newColor, newPrice, newDoors, newHeight, newWidth);
+
+                                //Displaying new object
+                                Console.WriteLine(newRefrigerator.ToString());
+
                                 list.Add(newRefrigerator);
                                 rList.Add(newRefrigerator);
                             }
@@ -239,6 +240,10 @@ namespace Assignment1ClassesAndInheritance
 
                                 //Creating new Vacuum Object and adding to list
                                 Vacuum newVacuum = new Vacuum(newItemNumber, newBrand, newQuantity, newWattage, newColor, newPrice, newGrade, newVoltage);
+
+                                //Displaying new object
+                                Console.WriteLine(newVacuum.ToString());
+
                                 list.Add(newVacuum);
                                 vList.Add(newVacuum);   
                             }
@@ -255,6 +260,10 @@ namespace Assignment1ClassesAndInheritance
 
                                 //Creating new Microwave Object and adding to list
                                 Microwave newMicrowave = new Microwave(newItemNumber, newBrand, newQuantity, newWattage, newColor, newPrice, newCapacity, newRoomType);
+
+                                //Displaying new object
+                                Console.WriteLine(newMicrowave.ToString());
+
                                 list.Add(newMicrowave);
                                 mList.Add(newMicrowave);
                             }
@@ -262,6 +271,22 @@ namespace Assignment1ClassesAndInheritance
                             if (checkingNewItemNumber == 4 || checkingNewItemNumber == 5)
                             {
                                 //Generate Dishwasher Attributes
+                                string[] features = { "Clean with Steam", "Finger Print Resistant", "Third Rack"};
+                                int featureIndex = random.Next(features.Length);
+                                string newFeature = features[featureIndex];
+
+                                string[] sounds = { "Qt", "Qr", "Qu", "M" };
+                                int soundIndex = random.Next(sounds.Length);
+                                string newSound = sounds[soundIndex];
+
+                                //Creating new Dishwasher Object and adding to list
+                                Dishwasher newDishwasher = new Dishwasher(newItemNumber, newBrand, newQuantity, newWattage, newColor, newPrice, newFeature, newSound);
+
+                                //Displaying new object
+                                Console.WriteLine(newDishwasher.ToString());
+
+                                list.Add(newDishwasher);
+                                dList.Add(newDishwasher);
                             }
 
                         }
@@ -269,6 +294,49 @@ namespace Assignment1ClassesAndInheritance
                     //Save and Exit the program
                     case 5:
                         Console.WriteLine("Saving and Exiting The Program");
+
+                        //Writing list to file 
+                        //Clearing the file before hand
+                        File.WriteAllText(path, String.Empty);
+
+                        //Creating list of string from list of objects
+                        List<string> listOfAppliances = new List<string>();
+
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            string line = list[i].ToString();
+                            line = line.Replace("Item Number: ", "");
+                            line = line.Replace("Brand: ","");
+                            line = line.Replace("Quantity: ", "");
+                            line = line.Replace("Wattage: ", "");
+                            line = line.Replace("Color: ", "");
+                            line = line.Replace("Price: ", "");
+                            line = line.Replace("Number Of Doors: ", "");
+                            line = line.Replace("Height: ", "");
+                            line = line.Replace("Width: ", "");
+                            line = line.Replace("Grade: ", "");
+                            line = line.Replace("Voltage: ", "");
+                            line = line.Replace("Feature: ", "");
+                            line = line.Replace("Sound: ", "");
+                            line = line.Replace("Capacity: ", "");
+                            line = line.Replace("Room Type: ", "");
+                            line = line.Replace("\n", ";");
+                            line = line.Replace("double doors", "2");
+                            line = line.Replace("three doors", "3");
+                            line = line.Replace("four doors", "4");
+                            line = line.Replace("Low", "18");
+                            line = line.Replace("High", "24");
+                            line = line.Replace("Quietest", "Qt");
+                            line = line.Replace("Quieter", "Qr");
+                            line = line.Replace("Quiet", "Qu");
+                            line = line.Replace("Moderate", "M");
+                            line = line.Replace("kitchen", "K");
+                            line = line.Replace("work site", "W");
+                            listOfAppliances.Add(line);
+                        }
+
+                        File.WriteAllLines(path, listOfAppliances);
+
                         menuLoop = false;
                         break;
                 }

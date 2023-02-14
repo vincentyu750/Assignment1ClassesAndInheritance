@@ -63,6 +63,18 @@ namespace Assignment1ClassesAndInheritance
             }
         }
 
+        public string dFormatForFile()
+        {
+            return this.ItemNumber + ";" +
+                this.Brand + ";" +
+                this.Quantity + ";" +
+                this.Wattage + ";" +
+                this.Color + ";" +
+                this.Price + ";" +
+                this.feature + ";" +
+                this.sound + ";";
+        }
+
         public override string ToString()
         {
             return ("Item Number: " + ItemNumber + "\n" +

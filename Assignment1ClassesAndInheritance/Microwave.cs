@@ -53,6 +53,18 @@ namespace Assignment1ClassesAndInheritance
             }
         }
 
+        public string mFormatForFile()
+        {
+            return this.ItemNumber + ";" +
+                this.Brand + ";" +
+                this.Quantity + ";" +
+                this.Wattage + ";" +
+                this.Color + ";" +
+                this.Price + ";" +
+                this.capacity + ";" +
+                this.roomType + ";";
+        }
+
         public override string ToString()
         {
             return ("Item Number: " + ItemNumber + "\n" +

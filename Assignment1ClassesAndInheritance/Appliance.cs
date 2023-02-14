@@ -42,29 +42,24 @@ namespace Assignment1ClassesAndInheritance
         public double Price { get { return price;} set { price = value; } }
 
         //Appliance Availability Method
-        public bool isAvailable (List<Appliance> aList, long inputItemNumber)
-        {
-           foreach (Appliance appliance in aList)
-           {
-                if (appliance.ItemNumber == inputItemNumber)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        //Appliance Checkout Method 
         public void checkoutAppliance(List<Appliance> aList)
         {
+            int counter = 2;
+
             //Asking user for number of appliance
             Console.WriteLine("Enter item number of an Appliance:");
             long inputLong = Convert.ToInt64(Console.ReadLine());
-            if (isAvailable(aList, inputLong))
+            for (int i = 0; i < aList.Count; i ++)
             {
-                Console.WriteLine("Appliance " + inputLong + " has been checked out.\n");
+                if (aList[i].ItemNumber == inputLong)
+                {
+                    Console.WriteLine("Appliance " + inputLong + " has been checked out.\n");
+                    aList.RemoveAt(i);
+                    counter = 1;
+                    break;
+                }
             }
-            else
+            if (counter == 2)
             {
                 Console.WriteLine("No appliances found with that item number.\n");
             }
@@ -87,14 +82,15 @@ namespace Assignment1ClassesAndInheritance
         }
 
         //Formatting Appliance Data to File
-        public string formatForFile (List <Appliance> aList)
+        public string formatForFile()
         {
-            return this.itemNumber + ";" +
-                this.Brand + ";" +
-                this.quantity + ";" +
-                this.wattage + ";" +
-                this.color + ";" +
-                this.price + ";";
+            return (ItemNumber + ";" +
+                Brand + ";" +
+                Quantity + ";" +
+                Wattage + ";" +
+                Color + ";" +
+                Price + ";");
+                
         }
 
         //Appliance ToString Method 

@@ -54,6 +54,18 @@ namespace Assignment1ClassesAndInheritance
             }
         }
 
+        public string vFormatForFile()
+        {
+            return this.ItemNumber + ";" +
+                this.Brand + ";" +
+                this.Quantity + ";" +
+                this.Wattage + ";" +
+                this.Color + ";" +
+                this.Price + ";" +
+                this.grade + ";" +
+                this.voltage + ";";
+        }
+
         public override string ToString()
         {
             return ("Item Number: " + ItemNumber + "\n" +

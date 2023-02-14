@@ -1,12 +1,10 @@
-﻿189360200;Bosch;174;60;black;2000;2;62;29;
+189360200;Bosch;174;60;black;2000;2;62;29;
 535981394;Tefal;90;700;bronze;320;Third Rack;Qt;
 516089502;Hoover;240;1200;silver;250;Finger Print Resistant;Qr;
-255131796;Black & Decker;55;1500;white;500;Residential;18;
 254565387;Miele;86;1000;grey;800;Commercial;24;
 571522655;Philips;228;440;grey;390;Finger Print Resistant;M;
 263788832;Hoover;59;600;black;750;Residential;18;
 408018499;Bosch;54;500;white;250;Third Rack;Qu;
-143826003;Kenwood;0;4700;silver;1500;2;62;32;
 231784690;Russell Hobbs;155;175;grey;380;Residential;18;
 243074424;Tefal;61;4000;black;760;Residential;18;
 297972916;Dyson;104;1400;bronze;530;Commercial;24;
@@ -23,3 +21,5 @@
 118963476;Russell Hobbs;146;1150;grey;2360;4;73;32;
 333607621;Vax;113;440;silver;123.99;1.6;W;
 274807482;Black & Decker;30;1800;black;375;Commercial;24;
+193585615;Black & Decker;7;1670;bronze;572;3;31;43;
+331738469;Hoover;35;20;silver;1895;1;K;
