@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 namespace Assignment1ClassesAndInheritance
 {
     //Appliance Class 
-    internal class Appliance
+    class Appliance
     {
         private long itemNumber;
         private string brand;
@@ -17,19 +18,19 @@ namespace Assignment1ClassesAndInheritance
         private double price;
 
         //Class Constructor
-        private Appliance(long aItemNumber,
+        public Appliance(long aItemNumber,
                           string aBrand,
                           int aQuantity,
                           double aWattage,
                           string aColor,
                           double aPrice)
         {
-            itemNumber = aItemNumber;
-            brand = aBrand;
-            quantity = aQuantity;
-            wattage = aWattage;
-            color = aColor;
-            price = aPrice;
+            this.itemNumber = aItemNumber;
+            this.brand = aBrand;
+            this.quantity = aQuantity;
+            this.wattage = aWattage;
+            this.color = aColor;
+            this.price = aPrice;
         }
 
         //Getters and Setters Methods
@@ -66,7 +67,13 @@ namespace Assignment1ClassesAndInheritance
         //Appliance ToString Method 
         public override string ToString()
         {
-            return base.ToString();
+            return ("Item Number: " + ItemNumber + "\n" +
+                    "Brand: "+ Brand + "\n" +
+                    "Quantity: "+ Quantity + "\n" +
+                    "Wattage: "+ Wattage + "\n" +
+                    "Color: "+ Color + "\n" +
+                    "Price: "+ Price + "\n");
+
         }
     }
 }
