@@ -42,15 +42,48 @@ namespace Assignment1ClassesAndInheritance
         public double Price { get { return price;} set { price = value; } }
 
         //Appliance Availability Method
-        public bool isAvailable (Appliance a1)
+        public bool isAvailable (List<Appliance> aList, long inputItemNumber)
         {
+           foreach (Appliance appliance in aList)
+           {
+                if (appliance.ItemNumber == inputItemNumber)
+                {
+                    return true;
+                }
+            }
             return false;
         }
 
         //Appliance Checkout Method 
-        public void checkout(Appliance a1)
+        public void checkoutAppliance(List<Appliance> aList)
         {
-            
+            //Asking user for number of appliance
+            Console.WriteLine("Enter item number of an Appliance:");
+            long inputLong = Convert.ToInt64(Console.ReadLine());
+            if (isAvailable(aList, inputLong))
+            {
+                Console.WriteLine("Appliance " + inputLong + " has been checked out.\n");
+            }
+            else
+            {
+                Console.WriteLine("No appliances found with that item number.\n");
+            }
+        }
+
+        //Finding Appliances by Brand
+        public void findApplianceByBrand (List<Appliance> aList)
+        {
+            //Asking user for number of appliance
+            Console.WriteLine("Enter brand to search for:");
+            string input = Console.ReadLine();
+            Console.WriteLine("Matching Appliances:\n");
+            foreach (Appliance appliance in aList)
+            {
+                if (appliance.Brand == input)
+                {
+                    Console.WriteLine(appliance.ToString());
+                }
+            }
         }
 
         //Formatting Appliance Data to File

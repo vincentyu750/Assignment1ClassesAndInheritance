@@ -25,6 +25,34 @@ namespace Assignment1ClassesAndInheritance
             this.roomType = aRoomType;
         }
 
+        public string RoomType
+        {
+            get
+            {
+                if (roomType == "K")
+                {
+                    roomType = "kitchen";
+                }
+                if (roomType == "W")
+                {
+                    roomType = "work site";
+                }
+
+                return roomType;
+            }
+        }
+
+        public void findApplianceByRoom(List<Microwave> vList, string input)
+        {
+            foreach (Microwave microwave in vList)
+            {
+                if (microwave.roomType == input)
+                {
+                    Console.WriteLine(microwave.ToString());
+                }
+            }
+        }
+
         public override string ToString()
         {
             return ("Item Number: " + ItemNumber + "\n" +
@@ -34,7 +62,7 @@ namespace Assignment1ClassesAndInheritance
                     "Color: " + Color + "\n" +
                     "Price: " + Price + "\n" +
                     "Capacity: " + capacity + "\n" +
-                    "Room Type: " + roomType + "\n");
+                    "Room Type: " + RoomType + "\n");
 
         }
     }

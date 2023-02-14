@@ -28,6 +28,41 @@ namespace Assignment1ClassesAndInheritance
             this.sound = aSound;
         }
 
+        public string Sound 
+        { 
+            get 
+            {
+                if (sound == "Qt")
+                {
+                    sound = "Quietest";
+                }
+                if (sound == "Qr")
+                {
+                    sound = "Quieter";
+                }
+                if (sound == "Qu")
+                {
+                    sound = "Quiet";
+                }
+                if (sound == "M")
+                {
+                    sound = "Moderate";
+                }
+                return sound; 
+            } 
+        }
+
+        public void findApplianceBySound(List<Dishwasher> vList, string input)
+        {
+            foreach (Dishwasher dishwasher in vList)
+            {
+                if (dishwasher.sound == input)
+                {
+                    Console.WriteLine(dishwasher.ToString());
+                }
+            }
+        }
+
         public override string ToString()
         {
             return ("Item Number: " + ItemNumber + "\n" +
@@ -37,7 +72,7 @@ namespace Assignment1ClassesAndInheritance
                     "Color: " + Color + "\n" +
                     "Price: " + Price + "\n" +
                     "Feature: " + feature + "\n" +
-                    "Sound: " + sound + "\n");
+                    "Sound: " + Sound + "\n");
 
         }
 

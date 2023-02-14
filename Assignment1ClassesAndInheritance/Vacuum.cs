@@ -10,9 +10,9 @@ namespace Assignment1ClassesAndInheritance
     {
 
         private string grade;
-        private int voltage;
+        private string voltage;
 
-        public Vacuum(long aItemNumber, string aBrand, int aQuantity, double aWattage, string aColor, double aPrice, string aGrade, int aVoltage) : base(aItemNumber, aBrand, aQuantity, aWattage, aColor, aPrice)
+        public Vacuum(long aItemNumber, string aBrand, int aQuantity, double aWattage, string aColor, double aPrice, string aGrade, string aVoltage) : base(aItemNumber, aBrand, aQuantity, aWattage, aColor, aPrice)
         {
             //Capital Are the getter methods
             this.ItemNumber = aItemNumber;
@@ -27,6 +27,33 @@ namespace Assignment1ClassesAndInheritance
             this.voltage = aVoltage;
         }
 
+        public string Voltage
+        {
+            get
+            {
+                if (voltage == "18")
+                {
+                    voltage = "Low";
+                }
+                if (voltage == "24")
+                {
+                    voltage = "High";
+                }
+                return voltage;
+            }
+        }
+
+        public void findApplianceByVoltage(List<Vacuum> vList, string input)
+        {
+            foreach (Vacuum vacuum in vList)
+            {
+                if (vacuum.voltage == input)
+                {
+                    Console.WriteLine(vacuum.ToString());
+                }
+            }
+        }
+
         public override string ToString()
         {
             return ("Item Number: " + ItemNumber + "\n" +
@@ -36,7 +63,7 @@ namespace Assignment1ClassesAndInheritance
                     "Color: " + Color + "\n" +
                     "Price: " + Price + "\n" +
                     "Grade: " + grade + "\n" +
-                    "Voltage: " + voltage + "\n");
+                    "Voltage: " + Voltage + "\n");
 
         }
     }
